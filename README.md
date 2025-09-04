@@ -1,76 +1,80 @@
-# 音樂播放系統 - Songlist in C
-## 0.程式操作介紹
-以下會詳細介紹此專案操作辦法，並在後續提供說明。
-1. 下載 `songlist.csv`與 `song_demo.c`，並存放於同資料夾
-2. 打開cmd或者任意能編譯c程式語言的編譯器
-3. 執行專案
+# Music Playback System - Songlist in C
+## Program Operation Introduction
+The following section provides detailed instructions on how to operate this project, with explanations provided later.
+
+1. Download ```songlist.csv``` and ```song_demo.c```, and save them in the same folder.
+2. Open cmd or any compiler that can compile C programming language.
+3. Execute the project.
+
 ![image](https://github.com/chij6/Songlist-in-C/blob/main/demo.png)
-功能頁面會向上面呈現，先列出所有歌曲，再進入功能頁面!
+
+The function page will appear as shown above, first listing all songs, then entering the function page!
+
+## 1. System Overview and Introduction
+
+This is a data structure final project for school, aimed at designing a simple song playback system. The default playlist is created through a CSV file, please refer to the attachment: *songlist.csv*.
+
+* The following are system functions:
+	* Song Information
+	* Function
+	* Search
+	* Random Playback
+    * Add Favorite
+	* Search Favorite
 
 
-## 1.系統綱要與介紹
+## 2.Condition Description
 
-此為學校資料結構結業作業，旨在設計出一套簡略的歌曲撥放系統。
-預設歌單為透過csv檔建立，可參考附件 : *songlist.csv*
-* 以下為系統功能 :
-	* 歌曲資訊
-	* 功能操作
-	* 查詢
-	* 隨機播放
-	* 加入喜愛播放清單
-	* 查詢最愛歌曲清單
+1. Song information must include (Song Name, Artist, Song Length (unit: minutes: seconds), My Favorite)  EX: Dynamite BTS 3:44 Y
+2. Song data must be read from a CSV file for subsequent modifications.
+3. After ending the program, a new personal configuration file must be written.
 
+## 3.Function Description
+### ADD
+* Input the song information to be added, and display the result after addition when re-querying the playlist. EX: Please select the function Add
 
-## 2.條件說明
-
-1. 歌曲資訊需有（歌名、歌手、歌曲長度(單位：分秒)、我的最愛）   EX：Dynamite BTS 3:44 Y
-2. 須從 CSV 檔中讀入歌曲資料，以利後續修改。
-3. 結束程式後須寫入新的個人設定檔
-
-
-## 3.功能說明
-### 新增
-* 輸入所要新增之歌曲資訊，並在重新查詢歌單時需顯示新增後結果。EX：請選擇功能  Add
-    1. 輸入要新增的歌曲資訊(演唱者、歌名、歌曲長度) : 
+    1. Enter the song information to be added (Artist, Song Name, Song Length):
     2. Butter BTS 2:10
-    3. 新增成功
+    3. Successfully added
 
-### 刪除
-* 刪除指定歌曲資訊，並在重新查詢歌單時為刪除後結果。EX：請選擇功能 Delete 
-    1. 輸入要刪除的歌名或演唱者(該演唱者所有歌曲皆刪除)
-    2. 刪除成功
+### Delete
+* Delete specified song information, and show the result after deletion when re-querying the playlist. EX: Please select the function Delete
+  
+    1. Enter the song name or artist to delete (all songs by the artist will be deleted)
+    2. Successfully deleted
 
-### 修改
-* 輸入要修改之歌曲資訊，並在重新查詢歌單時須為修改後結果。EX：請選擇功能 Modify 
+### Modify
+* Input the song information to be modified, and show the modified result when re-querying the playlist. EX: Please select function Modify
 
-    1. 輸入要修改的歌名：
-    2. XXXX
-    3. 修改內容
-    4. Butter BTS 2:10
-    5. 修改成功
+1. Enter the song name to modify:
+2. XXXX
+3. Modify content
+4. Butter BTS 2:10
+5. Successfully modified
     
-    
-### 查詢
-* 從歌曲清單中，進行多種查詢(由歌手、歌名與時間區段做條件)，並排序後顯示結果。
-Ex：請選擇功能 : Search 
-    1. 請輸入演唱者 : 
+### Search
+* From the song list, perform various searches (using artist, song name, and time range as conditions), and display the sorted results.
+Ex: Please select function: Search
+
+    1. Please enter artist
     2. BTS 
-    3. BTS 的歌曲有 :
+    3. BTS's songs include
     
 | **no** | **Song** | **Singer** | **Time** |
 |-------|:-----:|------:|------:|
 | 1   |   Butter   |  BTS | 4:10 |
 | 2   |  Dynamite  |  BTS | 3:57 |
 | 3   |     ON     |  BTS | 3:59 |
-### 加入喜愛播放清單
-* 查詢特定歌曲後加入我的最愛清單。如：創立 A 清單、B 清單(此處有預設的 **0628.csv歌單**)
+### Add Favorite
+* After searching for specific songs, add them to My Favorites list. For example: Create List A, List B (there is a default ```0628.csv playlist```)
 
-### 查詢最愛歌曲清單
-* 查詢我的最愛清單：查詢特定最愛清單(可讀入 csv)
-EX：請輸入功能： Search Favorite
-    1. 請輸入清單名：
+### Search Favorite
+* Search My Favorites list: Query specific favorite lists (can read from csv)
+EX: Please enter function: Search Favorite
+
+    1. Please enter the list name
     2. Eric
-    3. Eric 的最愛清單有：
+    3. Eric's favorite list includes
     
 | **no** | **Song** | **Singer** | **Time** |
 |-------|:-----:|------:|------:|
@@ -78,6 +82,5 @@ EX：請輸入功能： Search Favorite
 | 2   |  Dynamite  |  BTS | 3:57 |
 | 3   |     ON     |  BTS | 3:59 |
 
-### 隨機撥放
-* 從歌曲清單中或我的最愛清單，列出隨機撥放歌曲。
-
+### Random Playbacl
+* From the song list or My Favorites list, display randomly played songs.
